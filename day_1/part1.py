@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 def read_input():
-    with open('input', 'r') as input_file:
+    with open('input-part1', 'r') as input_file:
         digits = input_file.read().replace('\n', '')
 
     return digits
