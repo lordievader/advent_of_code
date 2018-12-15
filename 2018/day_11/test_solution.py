@@ -9,6 +9,7 @@ import part_2
 
 
 @pytest.mark.parametrize('serial,location,output', [
+    (8, (3,5), 4),
     (57, (122,79), -5),
     (39, (217,196), 0),
     (71, (101,153), 4),

@@ -20,27 +20,23 @@ class Node():
 class Grid():
     def __init__(self, serial):
         self.serial = serial
-        self.grid = numpy.ndarray(shape=(300, 300), dtype=numpy.int32)
-        self.grid[:, :] = 0
         self.fill_grid()
 
     def fill_grid(self):
         # Rack ID
-        for index in range(300):
-            self.grid[index, :] = index
-
-        numpy.add(self.grid, 10, out=self.grid)
+        x = numpy.arange(300)
+        rack = numpy.ndarray(shape=(300, 300), dtype=numpy.int32)
+        self.grid = numpy.ndarray(shape=(300, 300), dtype=numpy.int32)
+        numpy.add(numpy.meshgrid(x, x)[1], 10, out=rack)
 
         # Powerlevel start
-        for index in range(300):
-            numpy.multiply(self.grid[:, index], index, out=self.grid[:, index])
+        numpy.multiply(rack, x, out=self.grid)
 
         # Add serial
         numpy.add(self.grid, self.serial, out=self.grid)
 
         # Multiply with rack ID
-        for index in range(300):
-            numpy.multiply(self.grid[index, :], index + 10, self.grid[index, :])
+        numpy.multiply(self.grid, rack, out=self.grid)
 
         # Hundreds digits
         numpy.mod(numpy.floor_divide(self.grid, 100), 10, out=self.grid)
