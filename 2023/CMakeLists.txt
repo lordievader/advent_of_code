@@ -18,3 +18,4 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(lib)
 add_subdirectory(day_01)
+add_subdirectory(day_02)
