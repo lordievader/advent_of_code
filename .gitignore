@@ -1,8 +1,9 @@
-.cache
-__pycache__
-.pytest_cache
-*.pyc
-**/target
 **/.vscode
+**/build
+**/target
+*.pyc
 *.swp
+.cache
+.pytest_cache
 Cargo.lock
+__pycache__
